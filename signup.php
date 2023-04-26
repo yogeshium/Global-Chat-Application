@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
 
     <style>
         *{
@@ -74,39 +74,88 @@
         {
             font-size: 0.84em;
         }
+        #errormsg{
+            
+            background-color: #f8d7da;
+            padding: 0.5em;
+            color: #9d1c24;
+            margin: auto;
+            width: 90%;
+            border-radius: 0.25rem;
+            height: 5vh;
+            text-align: center;
+            display: none;
+        }
+        #successmsg{
+            background-color: #d4edda;
+            color: #155724;
+            padding: 0.5em;
+            margin: auto;
+            width: 90%;
+            border-radius: 0.25rem;
+            height: 5vh;
+            text-align: center;
+            display: none;
+        }
+        a{
+            color:blue;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        
+        
     </style>
-
+    <script>
+        function password_show()
+        {
+            var pass=document.getElementById("password");
+            if(pass.type==="password")
+                pass.type="text";
+            else
+                pass.type="password";
+        }
+        function re_password_show()
+        {
+            var re_pass=document.getElementById("re_password");
+            if(re_pass.type==="password")
+                re_pass.type="text";
+            else
+                re_pass.type="password";
+        } 
+        
+    </script>
 </head>
 <body>
     <div class="container">
-        <form action="">
-            <h1>SignUp</h1>
+        <form action="php/do_signup.php" method="POST" id="form">
+            <h1>Sign Up</h1>
+            <div id="errormsg"></div>
+            <div id="successmsg"></div>
             <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" class="form-control">
+                <label for="">Username</label>
+                <input type="text" class="form-control" name="username" id="username" value = "" required>
             </div>
-        
-            <div class="form-group">
-                <label for="">Country</label>
-                <input type="text" class="form-control">
-            </div>
+    
             <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" class="form-control">
-                <label for="" class="show_password"><input type="checkbox" onclick="" > Show Password</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+                <label for="" class="show_password"><input type="checkbox" onclick="password_show()" > Show Password</label>
                 <br> 
             </div>
             
             <div class="form-group">
                 <br>
-                <label for="">Re-Password</label>
-                <input type="password" class="form-control">
-                <label for="" class="show_password"><input type="checkbox" onclick="" > Show Password</label>
+                <label for="">Confirm Password</label>
+                <input type="password" class="form-control" name="re_password" id="re_password" required>
+                <label for="" class="show_password"><input type="checkbox" onclick="re_password_show()" > Show Password</label>
             </div>
-            <input type="submit" class="btn">
-            <div class="btn-acnt"><a href="">Log In</a></div>
+            <input type="submit" class="btn" id="submit-btn">
+            <div class="btn-acnt">Already a Member? <a href="login.php">Log In</a></div>
         </form>
     </div>
-
+    
+    <script src="signup.js"></script>
 </body>
 </html>

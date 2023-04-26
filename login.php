@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 
     <style>
         *{
@@ -70,26 +70,62 @@
             margin-bottom: 24px;
             color: #222;
         }
+        #errormsg{
+            
+            background-color: #f8d7da;
+            padding: 0.5em;
+            color: #9d1c24;
+            margin: auto;
+            width: 90%;
+            border-radius: 0.25rem;
+            height: 5vh;
+            text-align: center;
+            display: none;
+        }
+        a{
+            color:blue;
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
     </style>
+
+    <script>
+        function password_show()
+        {
+            var pass=document.getElementById("password");
+            if(pass.type==="password")
+                pass.type="text";
+            else
+                pass.type="password";
+        }
+        
+    </script>
 
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form action="do_login.php" method="POST" id="form">
             <h1>Login</h1>
+            <div id="errormsg"></div>
+            <div id="successmsg"></div>
             <div class="form-group">
                 <label for="">Username</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" id="username" name="username">
             </div>
         
             <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" class="form-control">
+                <input type="password" class="form-control" id="password" name="password">
+                <label for="" class="show_password"><input type="checkbox" onclick="password_show()" > Show Password</label>
+                <br> 
             </div>
-            <input type="submit" class="btn">
-            <div class="btn-acnt"><a href="">Create Account</a></div>
+            <input type="submit" class="btn" id="submit-btn">
+            <div class="btn-acnt">Not a member? <a href="signup.php">Signup</a></div>
         </form>
     </div>
-
+    <script src="Login.js"></script>
+   
 </body>
 </html> 
