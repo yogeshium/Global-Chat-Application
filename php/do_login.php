@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $conn= mysqli_connect("localhost","root","","chatapp");
     if(!$conn)
         die("Failed: To connect");
@@ -16,6 +17,7 @@
             $rows=mysqli_fetch_assoc($result);
             if($rows['password']===$password)
             {
+                $_SESSION["username"]=$username;
                 echo"success";
             }
             else

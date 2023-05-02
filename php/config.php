@@ -22,6 +22,8 @@
             else{
                 $sql = "create table user(username varchar(100) , password varchar(100), status varchar(100));";
                 mysqli_query($conn,$sql);
+                $sql = "create table message(sender varchar(100), reciever varchar(100), msg varchar(500));";
+                mysqli_query($conn,$sql);
             }
             
         }

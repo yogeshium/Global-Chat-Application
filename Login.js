@@ -18,7 +18,7 @@ submitbtn.onclick = (e) =>
             let data = xhttp.response;
             if(data=="success")
             {
-                location.href="chat.php";   
+                location.href="users.php";   
             }
             else
             {

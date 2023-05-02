@@ -112,12 +112,12 @@
             <div id="successmsg"></div>
             <div class="form-group">
                 <label for="">Username</label>
-                <input type="text" class="form-control" id="username" name="username">
+                <input type="text" class="form-control" id="username" name="username" required>
             </div>
         
             <div class="form-group">
                 <label for="">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" required>
                 <label for="" class="show_password"><input type="checkbox" onclick="password_show()" > Show Password</label>
                 <br> 
             </div>
