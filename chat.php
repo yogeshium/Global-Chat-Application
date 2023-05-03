@@ -27,23 +27,26 @@
             font-family: sans-serif;
             box-sizing: border-box;
         }
-        body{
-            height : 100vh;
+        .body{
+            height : 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
         .container-chatArea{
-            width: 50%;
+            width: 30%;
             height: 80vh;
             display: flex;
             flex-direction: column;
+
             box-shadow: 2px 2px 20px rgba(0,0,0,0.4);
         }
-        .body{
+        .chatbody{
             flex: 1;
             padding: 20px 30px;
             overflow: auto;
+            background-color: #f6f6f6;
         }
         .body::-webkit-scrollbar {
                 display: none;
@@ -54,17 +57,19 @@
             overflow: hidden;
             word-wrap: break-word;
             padding: 10px;
-            background-color: black;
-            color: white;
+            background-color: #fff;
+            color:black;
             width: fit-content;
-            border-radius: 10px;
             margin-bottom: 15px;
             box-sizing: border-box;
+            box-shadow: 0 0 2rem rgba(0, 0, 0, 0.075), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.1);
+            border-radius: 1.125rem 1.125rem 1.125rem 0;
         }
         .user_message{
             margin-left: auto;
-            background-color: grey;
+            background-color: #343434;
             color: white;
+            border-radius: 1.125rem 1.125rem 0 1.125rem;
         }
         .footer form{
             display: flex;
@@ -95,18 +100,66 @@
         form button:hover{
             background-color: grey;
         }
-        h1{
+       .contact-bar{
+        padding-left: 5rem;
+            height: 4.5rem;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-weight: 400;
+            line-height: 1.25em;
+            box-sizing: border-box;
+            /* border-top-left-radius: 10px;
+            border-top-right-radius: 10px; */
+            border-radius: 1rem;
+       }
+       .contact-name{
+        font-weight: 500;
+       }
+        .nav{
+            display:flex;
+            width: 100%;
+            height: 2.5rem; 
+            /* background-color: #eee; */
+            /* justify-content: right; */
+            
+        }
+        .nav a{
+            font-size: 20px;
+            color: #fff;
+            background-color: #343a40;
+            border-color: #343a40;
+            display: inline-block;
+            font-weight: 400;
             text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+        .nav a:hover{
+            background-color: #282c31;
         }
     </style>
 
 </head>
 <body>
+    <nav class="nav">
+        <a href="#">User</a>
+        <a href="#">Logout</a>
+    </nav>
+    <div class="body">
     <div class="container-chatArea">
-        <div class="header">
-            <h1><?php echo$reciever?></h1>
+        <div class="contact-bar">
+            <div class="contact-name"><?php echo$reciever?></div>
         </div>
-        <div class="body" id="body">
+
+        
+
+        <div class="chatbody" id="chatbody">
             <!-- <p class="message"></p>
             <p class="user_message message"></p> -->
         </div>
@@ -118,6 +171,7 @@
                 <button type="submit" id="submit-btn">SEND</button>
             </form>
         </div>
+    </div>
     </div>
     <script src="chat.js"></script>
 </body>

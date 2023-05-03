@@ -2,26 +2,30 @@ const form = document.getElementById("form");
 const submitbtn = document.getElementById("submit-btn");
 const msg= document.getElementById("message");
 const reciever = document.getElementById("reciever").value;
-chatarea = document.getElementById("body");
+
+var chat = document.getElementById('chatbody');
+   chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+
+chatarea = document.getElementById("chatbody");
 submitbtn.onclick = (e) =>
 {
     e.preventDefault(); 
-    console.log("clicked");
+    //console.log("clicked");
 
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST","php/put_chat.php",true);
     xhttp.onload=()=>
     {
         let data=xhttp.response;
-        console.log(data);
+        //console.log(data);
         if(xhttp.readyState==4 && xhttp.status===200)
         {  
            msg.value="";
         }
     }
-    
-    let formdata= new FormData(form);
-    xhttp.send(formdata);
+    if(msg.value!=="")
+    {let formdata= new FormData(form);
+    xhttp.send(formdata);}
 }
 
 setInterval(()=>{
@@ -31,6 +35,7 @@ setInterval(()=>{
     {
         let data=xhttp.response;
         chatarea.innerHTML=data;
+        chat.scrollTop = chat.scrollHeight - chat.clientHeight;
     }
     xhttp.send();
-},10);
+},500);
